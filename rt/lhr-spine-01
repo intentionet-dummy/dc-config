@@ -1,174 +1,48 @@
-Using 2678 out of 129016 bytes
-!
-! Last configuration change at 17:00:33 UTC Mon Oct 9 2017 by demo
-!
-version 15.2
-service timestamps debug datetime msec
-service timestamps log datetime msec
-!
-hostname lhr-spine-01
-!
-boot-start-marker
-boot-end-marker
-!
-!
-!
-aaa new-model
-!
-!
-aaa authorization exec default local 
-!
-!
-!
-!
-!
-aaa session-id common
-no ip icmp rate-limit unreachable
-ip cef
-!
-!
-!
-!
-!
-!
-no ip domain lookup
-ip domain name demo.com
-no ipv6 cef
-!
-!
-multilink bundle-name authenticated
-!
-!
-!
-!
-!
-!
-!
-username demo privilege 15 password 0 demo
-!
-!
-ip tcp synwait-time 5
-ip ssh source-interface GigabitEthernet0/0
-ip ssh rsa keypair-name lhr-spine-01.demo.com
-ip ssh version 2
-! 
-!
-!
-!
-!
-!
-!
-!
-!
-!
-!
-!
-interface Loopback0
- ip address 10.10.255.3 255.255.255.255
-!
-interface Ethernet0/0
- no ip address
- shutdown
- duplex auto
-!
-interface GigabitEthernet0/0
- ip address 192.168.60.32 255.255.255.0
- media-type gbic
- speed 1000
- duplex full
- no negotiation auto
- no cdp enable
-!
-interface Ethernet1/0
- description link to lhr-leaf-01 e1/0
- ip address 10.10.10.2 255.255.255.252
- ip ospf network point-to-point
- duplex full
-!
-interface Ethernet1/1
- description link to lhr-leaf-02 e1/0
- ip address 10.10.10.10 255.255.255.252
- ip ospf network point-to-point
- duplex full
-!
-interface Ethernet1/2
- description link to lhr-fw-01 e1/0
- ip address 10.10.10.17 255.255.255.252
- ip ospf network point-to-point
- duplex full
-!
-interface Ethernet1/3
- description link to lhr-fw-02 e1/0
- ip address 10.10.10.21 255.255.255.252
- ip ospf network point-to-point
- duplex full
-!
-interface Ethernet1/4
- no ip address
- shutdown
- duplex full
-!
-interface Ethernet1/5
- no ip address
- shutdown
- duplex full
-!
-interface Ethernet1/6
- no ip address
- shutdown
- duplex full
-!
-interface Ethernet1/7
- no ip address
- shutdown
- duplex full
-!
-router ospf 1
- router-id 10.10.255.3
- passive-interface Loopback0
- network 10.10.10.0 0.0.0.255 area 0
- network 10.10.255.0 0.0.0.255 area 0
-!
-router bgp 65101
- bgp router-id 10.10.255.3
- bgp log-neighbor-changes
- bgp bestpath compare-routerid
- neighbor LEAF peer-group
- neighbor FW peer-group
- neighbor 10.10.10.1 remote-as 65001
- neighbor 10.10.10.1 peer-group LEAF
- neighbor 10.10.10.9 remote-as 65002
- neighbor 10.10.10.9 peer-group LEAF
- neighbor 10.10.10.18 remote-as 65201
- neighbor 10.10.10.18 peer-group FW
- neighbor 10.10.10.22 remote-as 65202
- neighbor 10.10.10.22 peer-group FW
-!
-ip forward-protocol nd
-!
-!
-no ip http server
-no ip http secure-server
-!
-!
-!
-!
-!
-control-plane
-!
-!
-line con 0
- exec-timeout 0 0
- privilege level 15
- logging synchronous
- stopbits 1
-line aux 0
- exec-timeout 0 0
- privilege level 15
- logging synchronous
- stopbits 1
-line vty 0 4
- transport input ssh
-!
-!
-end
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       + - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 28 subnets, 3 masks
+B        10.1.1.0/24 [20/0] via 10.10.10.1, 00:33:51
+B        10.1.2.0/24 [20/0] via 10.10.10.9, 00:33:51
+B        10.1.20.0/24 [20/0] via 10.10.10.18, 00:33:51
+B        10.1.30.0/24 [20/0] via 10.10.10.18, 00:33:51
+C        10.10.10.0/30 is directly connected, Ethernet1/0
+L        10.10.10.2/32 is directly connected, Ethernet1/0
+O        10.10.10.4/30 [110/20] via 10.10.10.1, 07:09:13, Ethernet1/0
+C        10.10.10.8/30 is directly connected, Ethernet1/1
+L        10.10.10.10/32 is directly connected, Ethernet1/1
+O        10.10.10.12/30 [110/20] via 10.10.10.9, 07:09:23, Ethernet1/1
+C        10.10.10.16/30 is directly connected, Ethernet1/2
+L        10.10.10.17/32 is directly connected, Ethernet1/2
+C        10.10.10.20/30 is directly connected, Ethernet1/3
+L        10.10.10.21/32 is directly connected, Ethernet1/3
+O        10.10.10.24/30 [110/20] via 10.10.10.18, 07:09:23, Ethernet1/2
+O        10.10.10.28/30 [110/20] via 10.10.10.22, 07:09:23, Ethernet1/3
+O        10.10.10.32/30 [110/20] via 10.10.10.18, 07:09:23, Ethernet1/2
+O        10.10.10.36/30 [110/20] via 10.10.10.18, 07:09:23, Ethernet1/2
+O        10.10.10.40/30 [110/20] via 10.10.10.22, 07:09:23, Ethernet1/3
+O        10.10.10.44/30 [110/20] via 10.10.10.22, 07:09:23, Ethernet1/3
+O        10.10.255.1/32 [110/11] via 10.10.10.1, 07:09:13, Ethernet1/0
+O        10.10.255.2/32 [110/11] via 10.10.10.9, 07:09:23, Ethernet1/1
+C        10.10.255.3/32 is directly connected, Loopback0
+O        10.10.255.4/32 [110/21] via 10.10.10.22, 07:09:23, Ethernet1/3
+                        [110/21] via 10.10.10.18, 07:09:23, Ethernet1/2
+                        [110/21] via 10.10.10.9, 07:09:23, Ethernet1/1
+                        [110/21] via 10.10.10.1, 07:09:13, Ethernet1/0
+O        10.10.255.5/32 [110/11] via 10.10.10.18, 07:09:23, Ethernet1/2
+O        10.10.255.6/32 [110/11] via 10.10.10.22, 07:09:23, Ethernet1/3
+O        10.10.255.7/32 [110/21] via 10.10.10.22, 07:09:23, Ethernet1/3
+                        [110/21] via 10.10.10.18, 07:09:13, Ethernet1/2
+O        10.10.255.8/32 [110/21] via 10.10.10.22, 07:09:23, Ethernet1/3
+                        [110/21] via 10.10.10.18, 07:09:13, Ethernet1/2
+      192.168.60.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.60.0/24 is directly connected, GigabitEthernet0/0
+L        192.168.60.32/32 is directly connected, GigabitEthernet0/0
