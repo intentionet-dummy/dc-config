@@ -10,37 +10,37 @@ Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
 Gateway of last resort is not set
 
       10.0.0.0/8 is variably subnetted, 26 subnets, 3 masks
-B        10.1.1.0/24 [20/0] via 10.10.10.5, 06:10:24
-B        10.1.2.0/24 [20/0] via 10.10.10.13, 06:08:50
-O        10.10.10.0/30 [110/20] via 10.10.10.5, 06:11:38, Ethernet1/0
+B        10.1.1.0/24 [20/0] via 10.10.10.5, 06:11:00
+B        10.1.2.0/24 [20/0] via 10.10.10.13, 06:09:26
+O        10.10.10.0/30 [110/20] via 10.10.10.5, 06:12:14, Ethernet1/0
 C        10.10.10.4/30 is directly connected, Ethernet1/0
 L        10.10.10.6/32 is directly connected, Ethernet1/0
-O        10.10.10.8/30 [110/20] via 10.10.10.13, 06:11:48, Ethernet1/1
+O        10.10.10.8/30 [110/20] via 10.10.10.13, 06:12:24, Ethernet1/1
 C        10.10.10.12/30 is directly connected, Ethernet1/1
 L        10.10.10.14/32 is directly connected, Ethernet1/1
-O        10.10.10.16/30 [110/20] via 10.10.10.26, 06:11:48, Ethernet1/2
-O        10.10.10.20/30 [110/20] via 10.10.10.30, 06:11:48, Ethernet1/3
+O        10.10.10.16/30 [110/20] via 10.10.10.26, 06:12:24, Ethernet1/2
+O        10.10.10.20/30 [110/20] via 10.10.10.30, 06:12:24, Ethernet1/3
 C        10.10.10.24/30 is directly connected, Ethernet1/2
 L        10.10.10.25/32 is directly connected, Ethernet1/2
 C        10.10.10.28/30 is directly connected, Ethernet1/3
 L        10.10.10.29/32 is directly connected, Ethernet1/3
-O        10.10.10.32/30 [110/20] via 10.10.10.26, 06:11:48, Ethernet1/2
-O        10.10.10.36/30 [110/20] via 10.10.10.26, 06:11:48, Ethernet1/2
-O        10.10.10.40/30 [110/20] via 10.10.10.30, 06:11:48, Ethernet1/3
-O        10.10.10.44/30 [110/20] via 10.10.10.30, 06:11:48, Ethernet1/3
-O        10.10.255.1/32 [110/11] via 10.10.10.5, 06:11:38, Ethernet1/0
-O        10.10.255.2/32 [110/11] via 10.10.10.13, 06:11:48, Ethernet1/1
-O        10.10.255.3/32 [110/21] via 10.10.10.30, 06:11:48, Ethernet1/3
-                        [110/21] via 10.10.10.26, 06:11:48, Ethernet1/2
-                        [110/21] via 10.10.10.13, 06:11:38, Ethernet1/1
-                        [110/21] via 10.10.10.5, 06:11:38, Ethernet1/0
+O        10.10.10.32/30 [110/20] via 10.10.10.26, 06:12:24, Ethernet1/2
+O        10.10.10.36/30 [110/20] via 10.10.10.26, 06:12:24, Ethernet1/2
+O        10.10.10.40/30 [110/20] via 10.10.10.30, 06:12:24, Ethernet1/3
+O        10.10.10.44/30 [110/20] via 10.10.10.30, 06:12:24, Ethernet1/3
+O        10.10.255.1/32 [110/11] via 10.10.10.5, 06:12:14, Ethernet1/0
+O        10.10.255.2/32 [110/11] via 10.10.10.13, 06:12:24, Ethernet1/1
+O        10.10.255.3/32 [110/21] via 10.10.10.30, 06:12:24, Ethernet1/3
+                        [110/21] via 10.10.10.26, 06:12:24, Ethernet1/2
+                        [110/21] via 10.10.10.13, 06:12:14, Ethernet1/1
+                        [110/21] via 10.10.10.5, 06:12:14, Ethernet1/0
 C        10.10.255.4/32 is directly connected, Loopback0
-O        10.10.255.5/32 [110/11] via 10.10.10.26, 06:11:48, Ethernet1/2
-O        10.10.255.6/32 [110/11] via 10.10.10.30, 06:11:48, Ethernet1/3
-O        10.10.255.7/32 [110/21] via 10.10.10.30, 06:11:48, Ethernet1/3
-                        [110/21] via 10.10.10.26, 06:11:38, Ethernet1/2
-O        10.10.255.8/32 [110/21] via 10.10.10.30, 06:11:38, Ethernet1/3
-                        [110/21] via 10.10.10.26, 06:11:38, Ethernet1/2
+O        10.10.255.5/32 [110/11] via 10.10.10.26, 06:12:24, Ethernet1/2
+O        10.10.255.6/32 [110/11] via 10.10.10.30, 06:12:24, Ethernet1/3
+O        10.10.255.7/32 [110/21] via 10.10.10.30, 06:12:24, Ethernet1/3
+                        [110/21] via 10.10.10.26, 06:12:14, Ethernet1/2
+O        10.10.255.8/32 [110/21] via 10.10.10.30, 06:12:14, Ethernet1/3
+                        [110/21] via 10.10.10.26, 06:12:14, Ethernet1/2
       192.168.60.0/24 is variably subnetted, 2 subnets, 2 masks
 C        192.168.60.0/24 is directly connected, GigabitEthernet0/0
 L        192.168.60.33/32 is directly connected, GigabitEthernet0/0
