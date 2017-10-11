@@ -1,0 +1,11 @@
+{
+	"hostname" : "hr-app-01",
+	"iptablesFile" : "iptables/hr-app-01.iptables",
+	"hostInterfaces" : {
+		"eth0" : {
+			"name": "eth0",
+      "prefix" : "10.1.2.2/30",
+      "gateway": "10.1.2.1"
+		}
+	}
+}

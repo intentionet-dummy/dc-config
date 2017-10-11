@@ -1,0 +1,11 @@
+{
+	"hostname" : "fin-app-01",
+	"iptablesFile" : "iptables/fin-app-01.iptables",
+	"hostInterfaces" : {
+		"eth0" : {
+			"name": "eth0",
+      "prefix" : "10.1.1.6/30",
+      "gateway": "10.1.1.5"
+		}
+	}
+}
