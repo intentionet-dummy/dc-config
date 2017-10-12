@@ -38,12 +38,12 @@ C        10.10.255.4/32 is directly connected, Loopback0
 O        10.10.255.5/32 [110/11] via 10.10.10.26, 1d23h, Ethernet1/2
 O        10.10.255.6/32 [110/11] via 10.10.10.30, 1d23h, Ethernet1/3
 O        10.10.255.7/32 [110/21] via 10.10.10.30, 1d23h, Ethernet1/3
-                        [110/21] via 10.10.10.26, 00:06:16, Ethernet1/2
+                        [110/21] via 10.10.10.26, 00:06:53, Ethernet1/2
 O        10.10.255.8/32 [110/21] via 10.10.10.30, 1d23h, Ethernet1/3
                         [110/21] via 10.10.10.26, 1d23h, Ethernet1/2
 O        10.10.255.15/32 [110/11] via 10.10.10.5, 1d12h, Ethernet1/0
 B        10.20.255.1/32 [20/0] via 10.10.10.30, 1d12h
-B        10.30.255.1/32 [20/0] via 10.10.10.26, 19:05:01
+B        10.30.255.1/32 [20/0] via 10.10.10.26, 19:05:38
       192.168.60.0/24 is variably subnetted, 2 subnets, 2 masks
 C        192.168.60.0/24 is directly connected, GigabitEthernet0/0
 L        192.168.60.33/32 is directly connected, GigabitEthernet0/0
